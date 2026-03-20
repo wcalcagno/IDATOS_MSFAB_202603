@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MLExperiment",
+    "displayName": "nb_ml_arima_vviento"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "81e7cea8-d768-8cb7-49e3-938a52b1e301"
+  }
+}

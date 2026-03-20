@@ -1,0 +1,40 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "2b9daee1-08a4-4223-a6ab-a3db46e67f7c",
+        "clusterUri": "https://trd-0dg475fuye6yfmerrk.z5.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "8173de24-e434-4520-9250-7f15a98aab04",
+        "databaseItemName": "eh_walter"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "1b7b0e1c-9e53-466a-ae83-fefea2a82b0b",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "2b9daee1-08a4-4223-a6ab-a3db46e67f7c"
+      },
+      {
+        "id": "19899569-609e-46e2-96e7-0e7a19b23e28",
+        "content": "tiempo_santiago\n| extend dt               = todatetime(dateTime)\n| extend fecha            = format_datetime(dt, \"yyyy-MM-dd\")\n| where fecha            == format_datetime(now() - 3h, \"yyyy-MM-dd\")\n| extend temp_value       = todouble(parse_json(temperature).value)\n| summarize \n    arg_max(temp_value, dt, description)\n| project\n    max_temperatura       = temp_value,\n    hora_registro         = format_datetime(dt, \"HH:mm\"),\n    descripcion           = tostring(description)",
+        "title": "",
+        "dataSourceId": "2b9daee1-08a4-4223-a6ab-a3db46e67f7c"
+      },
+      {
+        "id": "0b9558c1-122e-4336-86a5-df31275fbc9d",
+        "content": "tiempo_santiago\n| extend dt = todatetime(dateTime)\n| extend fecha = format_datetime(dt, \"yyyy-MM-dd\")\n| where fecha == format_datetime(now() - 3h, \"yyyy-MM-dd\")\n| extend temp_value             = todouble(parse_json(temperature).value)\n| extend sensacion_termica      = todouble(parse_json(apparentTemperature).value)\n| extend nubosidad              = toint(cloudCover)\n| summarize \n    temp_promedio       = avg(temp_value),\n    sensacion_promedio  = avg(sensacion_termica),\n    nubosidad_promedio  = avg(nubosidad)\n| extend hay_nubes = case(\n    nubosidad_promedio < 25,  \"☀️ Despejado\",\n    nubosidad_promedio < 50,  \"🌤️ Parcialmente nublado\",\n    nubosidad_promedio < 75,  \"⛅ Mayormente nublado\",\n                              \"☁️ Nublado\"\n)",
+        "title": "",
+        "dataSourceId": "2b9daee1-08a4-4223-a6ab-a3db46e67f7c"
+      },
+      {
+        "id": "862f1bb1-7e09-4e09-816f-2303d9f4064e",
+        "content": "tiempo_santiago\n| extend dt                  = todatetime(dateTime)\n| extend fecha               = format_datetime(dt, \"yyyy-MM-dd\")\n| where fecha               == format_datetime(now() - 3h, \"yyyy-MM-dd\")\n// ── Deduplicar por timestamp ───────────────────────────────────\n| summarize arg_max(ingestion_time(), *) by dt\n// ── Temperatura ───────────────────────────────────────────────\n| extend temperatura         = todouble(parse_json(temperature).value)\n| extend sensacion_termica   = todouble(parse_json(apparentTemperature).value)\n| extend temp_bulbo_humedo   = todouble(parse_json(wetBulbTemperature).value)\n// ── Viento ────────────────────────────────────────────────────\n| extend viento_velocidad    = todouble(parse_json(wind).speed.value)\n| extend viento_direccion    = tostring(parse_json(wind).direction.description)\n| extend viento_grados       = toint(parse_json(wind).direction.degrees)\n| extend rafaga_velocidad    = todouble(parse_json(windGust).speed.value)\n// ── Humedad y punto de rocío ───────────────────────────────────\n| extend humedad_relativa    = toint(relativeHumidity)\n| extend punto_rocio         = todouble(parse_json(dewPoint).value)\n// ── Visibilidad y cielo ────────────────────────────────────────\n| extend visibilidad_km      = todouble(parse_json(visibility).value)\n| extend nubosidad_pct       = toint(cloudCover)\n| extend descripcion_cielo   = tostring(description)\n| extend es_de_dia           = tobool(daytime)\n// ── UV ────────────────────────────────────────────────────────\n| extend uv_index            = toint(uvIndex)\n| extend uv_descripcion      = tostring(uvIndexDescription)\n// ── Precipitación ─────────────────────────────────────────────\n| extend lluvia_ultima_hora  = todouble(parse_json(precipitationSummary).pastHour.value)\n| extend lluvia_6h           = todouble(parse_json(precipitationSummary).past6Hours.value)\n| extend hay_precipitacion   = tobool(hasPrecipitation)\n// ── Score corredor (0–100) ─────────────────────────────────────\n| extend score_temperatura = case(\n    temperatura >= 10 and temperatura <= 18, 30,\n    temperatura >  18 and temperatura <= 24, 20,\n    temperatura >  24 and temperatura <= 28, 10,\n    0)\n| extend score_viento = case(\n    viento_velocidad <= 15, 25,\n    viento_velocidad <= 25, 15,\n    viento_velocidad <= 35,  5,\n    0)\n| extend score_humedad = case(\n    humedad_relativa >= 40 and humedad_relativa <= 60, 20,\n    humedad_relativa >  60 and humedad_relativa <= 75, 12,\n    humedad_relativa >  75,                             5,\n    15)\n| extend score_lluvia = case(\n    hay_precipitacion == false, 15,\n    lluvia_ultima_hora <= 1,     8,\n    0)\n| extend score_uv = case(\n    uv_index <= 2, 10,\n    uv_index <= 5,  8,\n    uv_index <= 7,  4,\n    0)\n| extend score_total       = score_temperatura + score_viento + score_humedad + score_lluvia + score_uv\n| extend condicion_running = case(\n    score_total >= 80, \"🟢 Condiciones ideales\",\n    score_total >= 60, \"🟡 Condiciones aceptables\",\n    score_total >= 40, \"🟠 Condiciones difíciles\",\n                       \"🔴 No recomendado\")\n| project\n    fecha_hora           = dt,\n    es_de_dia,\n    descripcion_cielo,\n    temperatura,\n    sensacion_termica,\n    temp_bulbo_humedo,\n    viento_velocidad,\n    viento_direccion,\n    viento_grados,\n    rafaga_velocidad,\n    humedad_relativa,\n    punto_rocio,\n    visibilidad_km,\n    nubosidad_pct,\n    uv_index,\n    uv_descripcion,\n    hay_precipitacion,\n    lluvia_ultima_hora,\n    lluvia_6h,\n    score_temperatura,\n    score_viento,\n    score_humedad,\n    score_lluvia,\n    score_uv,\n    score_total,\n    condicion_running\n| order by fecha_hora asc",
+        "title": "",
+        "dataSourceId": "2b9daee1-08a4-4223-a6ab-a3db46e67f7c"
+      }
+    ]
+  }
+}

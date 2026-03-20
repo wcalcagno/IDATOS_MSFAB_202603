@@ -1,0 +1,34 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "df_importar_bronze Wcl",
+  "queryGroups": [],
+  "documentLocale": "es-ES",
+  "queriesMetadata": {
+    "humanresources department": {
+      "queryId": "81e2a7ce-d53c-4795-9e53-d8c85a3dde3f",
+      "queryName": "humanresources department",
+      "loadEnabled": false
+    },
+    "humanresources department_DataDestination": {
+      "queryId": "1ab9ccc3-f1a9-47fb-8ff0-a44ba4daf860",
+      "queryName": "humanresources department_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "wcalcagno.postgres.database.azure.com;adventureworks",
+      "kind": "PostgreSQL",
+      "connectionId": "{\"ClusterId\":\"9a7cfb98-26b7-44be-96c0-da8e5055c8ac\",\"DatasourceId\":\"0fa3836c-683e-48cf-a9a2-22a8b1a02cfe\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"9a7cfb98-26b7-44be-96c0-da8e5055c8ac\",\"DatasourceId\":\"b3d867e7-47ae-4453-9a56-6e1b796c8f0c\"}"
+    }
+  ]
+}

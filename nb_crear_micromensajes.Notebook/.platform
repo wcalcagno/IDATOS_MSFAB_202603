@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_crear_micromensajes"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dd01b1d5-0670-9ca2-45d1-852413ec173f"
+  }
+}

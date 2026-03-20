@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.70\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU02\",\"version\":{\"visual\":\"2.6.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU02",
+            "path": "BaseThemes/CY26SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Página 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "537d86d7d2aa5a47c41f",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"5215dd551913d2589741\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1022.5604731203645,\"y\":309.7464734112172,\"z\":1,\"width\":258.1220611760143,\"height\":345.4864511125115}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_estaciones.nombreEstacion\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_estaciones\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"nombreEstacion\"},\"Name\":\"dim_estaciones.nombreEstacion\",\"NativeReferenceName\":\"nombreEstacion\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 345.49,
+          "width": 258.12,
+          "x": 1022.56,
+          "y": 309.75,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"a64b3db0a165d9d0b7d1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.92777158369286,\"y\":174.72877987299432,\"z\":0,\"width\":1002.7049299529788,\"height\":480.50414465073436,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"ft_viento_anno_mes.anno\",\"active\":true},{\"queryRef\":\"ft_viento_anno_mes.mes\",\"active\":true}],\"Y\":[{\"queryRef\":\"ft_viento_anno_mes.VelocidadViento\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"ft_viento_anno_mes\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"anno\"},\"Name\":\"ft_viento_anno_mes.anno\",\"NativeReferenceName\":\"anno\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"mes\"},\"Name\":\"ft_viento_anno_mes.mes\",\"NativeReferenceName\":\"mes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"VelocidadViento\"},\"Name\":\"ft_viento_anno_mes.VelocidadViento\",\"NativeReferenceName\":\"VelocidadViento\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"anno\"}}},{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"mes\"}}}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 480.50,
+          "width": 1002.70,
+          "x": 9.93,
+          "y": 174.73,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

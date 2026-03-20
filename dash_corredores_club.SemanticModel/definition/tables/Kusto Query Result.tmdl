@@ -1,0 +1,340 @@
+table 'Kusto Query Result'
+	lineageTag: ade90be0-e9f4-45a5-8f1e-1dfee28cfe29
+
+	column fecha_hora
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 31240c59-8bae-43eb-8734-48bdb31a1fc8
+		summarizeBy: none
+		sourceColumn: fecha_hora
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_de_dia
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: deac2470-1365-48df-bb58-870f2aa8f60c
+		summarizeBy: none
+		sourceColumn: es_de_dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_cielo
+		dataType: string
+		lineageTag: 66676deb-c080-4850-a898-487ab6325da4
+		summarizeBy: none
+		sourceColumn: descripcion_cielo
+
+		annotation SummarizationSetBy = Automatic
+
+	column temperatura
+		dataType: double
+		lineageTag: 97a91f8d-93d3-43c7-92da-6a82e29d2e25
+		summarizeBy: sum
+		sourceColumn: temperatura
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sensacion_termica
+		dataType: double
+		lineageTag: e3623a02-d2f2-406f-bd6f-efdc24329c0c
+		summarizeBy: sum
+		sourceColumn: sensacion_termica
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column temp_bulbo_humedo
+		dataType: double
+		lineageTag: 97f35e9b-e810-4e76-a5e7-da1666f98e1d
+		summarizeBy: sum
+		sourceColumn: temp_bulbo_humedo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column viento_velocidad
+		dataType: double
+		lineageTag: 81adf514-cd27-447a-9130-3987625b7610
+		summarizeBy: sum
+		sourceColumn: viento_velocidad
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column viento_direccion
+		dataType: string
+		lineageTag: 367801ff-7745-4be2-aa66-093935eda306
+		summarizeBy: none
+		sourceColumn: viento_direccion
+
+		annotation SummarizationSetBy = Automatic
+
+	column viento_grados
+		dataType: int64
+		formatString: 0
+		lineageTag: f775b920-d14f-420b-b07c-a845f914941b
+		summarizeBy: sum
+		sourceColumn: viento_grados
+
+		annotation SummarizationSetBy = Automatic
+
+	column rafaga_velocidad
+		dataType: double
+		lineageTag: 59f7e41f-b02d-4e77-aeb6-b2ed4122dae7
+		summarizeBy: sum
+		sourceColumn: rafaga_velocidad
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column humedad_relativa
+		dataType: int64
+		formatString: 0
+		lineageTag: 1584e3fb-7a40-4534-b44a-87b11f522101
+		summarizeBy: sum
+		sourceColumn: humedad_relativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column punto_rocio
+		dataType: double
+		lineageTag: f02f2394-7044-4d83-bcad-9c40539336de
+		summarizeBy: sum
+		sourceColumn: punto_rocio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column visibilidad_km
+		dataType: double
+		lineageTag: 10097f6c-8009-4f12-984c-5f761ec6ab9a
+		summarizeBy: sum
+		sourceColumn: visibilidad_km
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nubosidad_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: ef121eac-831d-4d44-aaa9-1b124be2f133
+		summarizeBy: sum
+		sourceColumn: nubosidad_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column uv_index
+		dataType: int64
+		formatString: 0
+		lineageTag: 0dffaee4-e0d7-451b-b0d9-243ee6ba7604
+		summarizeBy: sum
+		sourceColumn: uv_index
+
+		annotation SummarizationSetBy = Automatic
+
+	column uv_descripcion
+		dataType: string
+		lineageTag: f417e0cc-48bd-4460-bfbd-f36cc014001b
+		summarizeBy: none
+		sourceColumn: uv_descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column hay_precipitacion
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2c2f3781-9325-453c-b048-585651bad29e
+		summarizeBy: none
+		sourceColumn: hay_precipitacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column lluvia_ultima_hora
+		dataType: double
+		lineageTag: 7fce3e7d-81ac-4bd7-ad58-d1bc7a4c4ba0
+		summarizeBy: sum
+		sourceColumn: lluvia_ultima_hora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lluvia_6h
+		dataType: double
+		lineageTag: 0b56cc71-4d22-4f9c-b759-b18d5a5fb05d
+		summarizeBy: sum
+		sourceColumn: lluvia_6h
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column score_temperatura
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c5c09c1-5f05-4aa5-a3e0-a9ac3e7fe40e
+		summarizeBy: sum
+		sourceColumn: score_temperatura
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_viento
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a9fd167-4744-47cc-a309-c6d58e94462d
+		summarizeBy: sum
+		sourceColumn: score_viento
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_humedad
+		dataType: int64
+		formatString: 0
+		lineageTag: fa1d30c1-396f-4cdf-a9e2-eb88f24f40aa
+		summarizeBy: sum
+		sourceColumn: score_humedad
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_lluvia
+		dataType: int64
+		formatString: 0
+		lineageTag: 93ea3a60-d186-4523-b07e-43955637a267
+		summarizeBy: sum
+		sourceColumn: score_lluvia
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_uv
+		dataType: int64
+		formatString: 0
+		lineageTag: 14c3f4e8-483d-42da-8137-0f703d15d722
+		summarizeBy: sum
+		sourceColumn: score_uv
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_total
+		dataType: int64
+		formatString: 0
+		lineageTag: 003684e5-4051-4611-9f2b-91de48bf0ed8
+		summarizeBy: sum
+		sourceColumn: score_total
+
+		annotation SummarizationSetBy = Automatic
+
+	column condicion_running
+		dataType: string
+		lineageTag: e812e95b-e5e3-421c-b3a3-7e7b7066ee36
+		summarizeBy: none
+		sourceColumn: condicion_running
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kusto Query Result' = m
+		mode: directQuery
+		source =
+				let
+				Source = AzureDataExplorer.Contents("https://trd-0dg475fuye6yfmerrk.z5.kusto.fabric.microsoft.com", "8173de24-e434-4520-9250-7f15a98aab04", "tiempo_santiago
+				| extend dt                  = todatetime(dateTime)
+				| extend fecha               = format_datetime(dt, ""yyyy-MM-dd"")
+				| where fecha               == format_datetime(now() - 3h, ""yyyy-MM-dd"")
+				// ── Deduplicar por timestamp ───────────────────────────────────
+				| summarize arg_max(ingestion_time(), *) by dt
+				// ── Temperatura ───────────────────────────────────────────────
+				| extend temperatura         = todouble(parse_json(temperature).value)
+				| extend sensacion_termica   = todouble(parse_json(apparentTemperature).value)
+				| extend temp_bulbo_humedo   = todouble(parse_json(wetBulbTemperature).value)
+				// ── Viento ────────────────────────────────────────────────────
+				| extend viento_velocidad    = todouble(parse_json(wind).speed.value)
+				| extend viento_direccion    = tostring(parse_json(wind).direction.description)
+				| extend viento_grados       = toint(parse_json(wind).direction.degrees)
+				| extend rafaga_velocidad    = todouble(parse_json(windGust).speed.value)
+				// ── Humedad y punto de rocío ───────────────────────────────────
+				| extend humedad_relativa    = toint(relativeHumidity)
+				| extend punto_rocio         = todouble(parse_json(dewPoint).value)
+				// ── Visibilidad y cielo ────────────────────────────────────────
+				| extend visibilidad_km      = todouble(parse_json(visibility).value)
+				| extend nubosidad_pct       = toint(cloudCover)
+				| extend descripcion_cielo   = tostring(description)
+				| extend es_de_dia           = tobool(daytime)
+				// ── UV ────────────────────────────────────────────────────────
+				| extend uv_index            = toint(uvIndex)
+				| extend uv_descripcion      = tostring(uvIndexDescription)
+				// ── Precipitación ─────────────────────────────────────────────
+				| extend lluvia_ultima_hora  = todouble(parse_json(precipitationSummary).pastHour.value)
+				| extend lluvia_6h           = todouble(parse_json(precipitationSummary).past6Hours.value)
+				| extend hay_precipitacion   = tobool(hasPrecipitation)
+				// ── Score corredor (0–100) ─────────────────────────────────────
+				| extend score_temperatura = case(
+				    temperatura >= 10 and temperatura <= 18, 30,
+				    temperatura >  18 and temperatura <= 24, 20,
+				    temperatura >  24 and temperatura <= 28, 10,
+				    0)
+				| extend score_viento = case(
+				    viento_velocidad <= 15, 25,
+				    viento_velocidad <= 25, 15,
+				    viento_velocidad <= 35,  5,
+				    0)
+				| extend score_humedad = case(
+				    humedad_relativa >= 40 and humedad_relativa <= 60, 20,
+				    humedad_relativa >  60 and humedad_relativa <= 75, 12,
+				    humedad_relativa >  75,                             5,
+				    15)
+				| extend score_lluvia = case(
+				    hay_precipitacion == false, 15,
+				    lluvia_ultima_hora <= 1,     8,
+				    0)
+				| extend score_uv = case(
+				    uv_index <= 2, 10,
+				    uv_index <= 5,  8,
+				    uv_index <= 7,  4,
+				    0)
+				| extend score_total       = score_temperatura + score_viento + score_humedad + score_lluvia + score_uv
+				| extend condicion_running = case(
+				    score_total >= 80, ""🟢 Condiciones ideales"",
+				    score_total >= 60, ""🟡 Condiciones aceptables"",
+				    score_total >= 40, ""🟠 Condiciones difíciles"",
+				                       ""🔴 No recomendado"")
+				| project
+				    fecha_hora           = dt,
+				    es_de_dia,
+				    descripcion_cielo,
+				    temperatura,
+				    sensacion_termica,
+				    temp_bulbo_humedo,
+				    viento_velocidad,
+				    viento_direccion,
+				    viento_grados,
+				    rafaga_velocidad,
+				    humedad_relativa,
+				    punto_rocio,
+				    visibilidad_km,
+				    nubosidad_pct,
+				    uv_index,
+				    uv_descripcion,
+				    hay_precipitacion,
+				    lluvia_ultima_hora,
+				    lluvia_6h,
+				    score_temperatura,
+				    score_viento,
+				    score_humedad,
+				    score_lluvia,
+				    score_uv,
+				    score_total,
+				    condicion_running
+				| order by fecha_hora asc", [])
+				in
+				Source
+
+	annotation PBI_ResultType = Table
+

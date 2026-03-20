@@ -1,0 +1,82 @@
+table ft_viento_anno_mes
+	lineageTag: ce58ee39-a3a7-4248-96cc-de28e46e3d8b
+	sourceLineageTag: [dbo].[ft_viento_anno_mes]
+
+	measure VelocidadViento = sum( ft_viento_anno_mes[vv_viento_promedio])
+		lineageTag: a187e473-b538-4e99-b5ed-9e9282b383c0
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column anno
+		dataType: int64
+		formatString: 0
+		lineageTag: 450e99a9-f7b1-4df5-b500-7688ebed4bcf
+		sourceLineageTag: anno
+		summarizeBy: sum
+		sourceColumn: anno
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 4060931e-5fec-40ef-80e2-9726c72f6e75
+		sourceLineageTag: mes
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dir_racha1
+		dataType: double
+		lineageTag: 825a4581-2be0-4e3f-a49c-727c4a8d741e
+		sourceLineageTag: Dir_racha1
+		summarizeBy: sum
+		sourceColumn: Dir_racha1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Dir_racha2
+		dataType: double
+		lineageTag: a4d5d514-dfbc-496c-86bc-1350b279c309
+		sourceLineageTag: Dir_racha2
+		summarizeBy: sum
+		sourceColumn: Dir_racha2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vv_viento_promedio
+		dataType: double
+		lineageTag: 8dedf2d1-046f-44fa-8fa8-8e99879eb44c
+		sourceLineageTag: vv_viento_promedio
+		summarizeBy: sum
+		sourceColumn: vv_viento_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CodigoNacional
+		dataType: double
+		lineageTag: ae161caf-ad9f-4456-951f-ffc2090d0f5a
+		sourceLineageTag: CodigoNacional
+		summarizeBy: none
+		sourceColumn: CodigoNacional
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ft_viento_anno_mes = entity
+		mode: directLake
+		source
+			entityName: ft_viento_anno_mes
+			schemaName: dbo
+			expressionSource: 'DirectLake - lh_silver'
+

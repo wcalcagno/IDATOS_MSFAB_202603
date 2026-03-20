@@ -1,0 +1,4 @@
+relationship 76336193-e1e8-f8ef-969e-c5fc4f5ea73e
+	fromColumn: ft_viento_anno_mes.CodigoNacional
+	toColumn: dim_estaciones.CodigoNacional
+

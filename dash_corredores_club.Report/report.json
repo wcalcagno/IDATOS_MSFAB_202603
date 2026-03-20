@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.70\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU02\",\"version\":{\"visual\":\"2.6.0\",\"report\":\"3.1.0\",\"page\":\"2.3.0\"},\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU02",
+            "path": "BaseThemes/CY26SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Página 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "910d76a01103e6023119",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2b0500cb7d575da7b0c8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":432.1270418102802,\"y\":21.279003696488335,\"z\":1,\"width\":341.69139317648234,\"height\":233.25041210849693}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Kusto Query Result.fecha_hora\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Kusto Query Result.temperatura)\"},{\"queryRef\":\"Sum(Kusto Query Result.score_temperatura)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Kusto Query Result\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"fecha_hora\"},\"Name\":\"Kusto Query Result.fecha_hora\",\"NativeReferenceName\":\"fecha_hora\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"score_temperatura\"}},\"Function\":0},\"Name\":\"Sum(Kusto Query Result.score_temperatura)\",\"NativeReferenceName\":\"Suma de score_temperatura\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"temperatura\"}},\"Function\":0},\"Name\":\"Sum(Kusto Query Result.temperatura)\",\"NativeReferenceName\":\"Suma de temperatura\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"fecha_hora\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 233.25,
+          "width": 341.69,
+          "x": 432.13,
+          "y": 21.28,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"2d0070144bc151191476\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20.460562465657624,\"y\":24.55267495878915,\"z\":0,\"width\":341.69139317648234,\"height\":232.8412071032519}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Kusto Query Result.fecha_hora\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Kusto Query Result.score_lluvia)\"},{\"queryRef\":\"Sum(Kusto Query Result.lluvia_ultima_hora)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Kusto Query Result\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"fecha_hora\"},\"Name\":\"Kusto Query Result.fecha_hora\",\"NativeReferenceName\":\"fecha_hora\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"score_lluvia\"}},\"Function\":0},\"Name\":\"Sum(Kusto Query Result.score_lluvia)\",\"NativeReferenceName\":\"Suma de score_lluvia\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"lluvia_ultima_hora\"}},\"Function\":0},\"Name\":\"Sum(Kusto Query Result.lluvia_ultima_hora)\",\"NativeReferenceName\":\"Suma de lluvia_ultima_hora\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"fecha_hora\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 232.84,
+          "width": 341.69,
+          "x": 20.46,
+          "y": 24.55,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
